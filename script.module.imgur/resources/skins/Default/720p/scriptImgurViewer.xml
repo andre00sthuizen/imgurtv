@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<window id="3086">
+	<defaultcontrol>1</defaultcontrol>
+	<coordinates>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		
+		<control type="Image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture>background.jpg</texture>
+		</control>
+		<control type="Image">
+			<posx>0</posx>
+			<posy>-20</posy>
+			<width>650</width>
+			<height>760</height>
+			<texture>ContentPanel.png</texture>
+		</control>
+		<control type="Image">
+			<posx>650</posx>
+			<posy>0</posy>
+			<width>630</width>
+			<height>720</height>
+			<texture>ContentPanel.png</texture>
+		</control>
+
+		<!-- ===================== Left column (640px) ===================== -->
+		<control type="label" id="101">
+			<description>Title</description>
+			<posx>10</posx>
+			<posy>10</posy>
+			<width>630</width>
+			<height>22</height>
+			<font>font14</font>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="102">
+			<description>Author and date</description>
+			<posx>10</posx>
+			<posy>42</posy>
+			<width>630</width>
+			<height>17</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="103">
+			<description>Album description</description>
+			<posx>10</posx>
+			<posy>69</posy>
+			<width>630</width>
+			<height>20</height>
+		</control>
+		
+		<control type="label" id="104">
+			<posx>10</posx>
+			<posy>99</posy>
+			<width>630</width>
+			<height>20</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="105">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="106">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="107">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="108">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="109">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="110">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="111">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="112">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="113">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="114">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="115">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="116">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="117">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="118">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="119">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="120">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="121">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="122">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="123">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="124">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="125">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="126">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="127">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="128">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="129">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="label" id="130">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		
+
+		<!-- ===================== Right column (610px) ===================== -->
+		<control type="label" id="200">
+			<description>No. of comments</description>
+			<posx>660</posx>
+			<posy>10</posy>
+			<width>610</width>
+			<height>22</height>
+		</control>
+		
+		<control type="Image">
+			<description>Separator</description>
+			<posx>660</posx>
+			<posy>40</posy>
+			<width>610</width>
+			<height>4</height>
+			<texture>separator.png</texture>
+		</control>
+		
+		<control type="label" id="201">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="202">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="203">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="204">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="205">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="206">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="207">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="208">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="209">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="210">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="211">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="212">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="213">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="214">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="215">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="216">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="217">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="218">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="219">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<font>font12</font>
+			<textcolor>0xff306fda</textcolor>
+			<scroll>true</scroll>
+		</control>
+		<control type="label" id="220">
+			<posx>660</posx>
+			<posy>38</posy>
+			<width>610</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+
+	</controls>
+</window>

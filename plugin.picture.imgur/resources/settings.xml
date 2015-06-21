@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting id="per_page" type="labelenum" label="30100" values="25|50|75|100" default="50" />
+</settings>

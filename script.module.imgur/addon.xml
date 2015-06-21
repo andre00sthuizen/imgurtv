@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.imgur" name="Imgur" version="0.0.1" provider-name="Andre Oosthuizen">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+	</requires>
+	<extension point="xbmc.python.script" library="default.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<language></language>
+		<platform>all</platform>
+		<website>https://imgur.com/</website>
+		<source>https://github.com/TODO</source>
+		<forum>http://forum.xbmc.org/TODO</forum>
+		<email>oosthuizen.andre@gmail.com</email>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+		<summary lang="en">
+			Imgur: The Most Viral images on the Internet
+		</summary>
+		<description lang="en">
+			Imgur is the Internet's visual storytelling community.
+			Millions of people visit Imgur every day to explore, 
+			share and discuss the best visual stories the Internet 
+			has to offer.
+		</description>
+	</extension>
+</addon>
