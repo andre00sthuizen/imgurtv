@@ -14,12 +14,14 @@
 #
 import xbmc
 import xbmcgui
+from collections import deque
 from .client import ImgurClient
 from .helpers import error
 
 CLIENT_ID = '716f6289bf2413c'
 CLIENT_SECRET = 'fdb0ba64d591f639907bc78ab2a926fedf05ce84'
-    
+CACHE_SIZE = 10
+
 class GalleryNavigator():
     
     _client = None
@@ -27,6 +29,7 @@ class GalleryNavigator():
     _itemId = None
     _galleryItem = None
     _galleryItems = None
+    _cachedGalleryItems = deque()
     
     def __init__(self):
         self._client = ImgurClient(CLIENT_ID, CLIENT_SECRET)
@@ -44,8 +47,15 @@ class GalleryNavigator():
         if (self._itemId is None):
             self._galleryItem = None
             return
+        
+        cachedGalleryItem = self.getCachedItem(self._itemId)
+        if (cachedGalleryItem is not None):
+            self._galleryItem = cachedGalleryItem
+            return self._galleryItem
+        
         try:
             self._galleryItem = self._client.gallery_item(self._itemId)
+            self.addCachedItem(self._galleryItem)
             return self._galleryItem
         except error.ImgurClientError as e:
             xbmcgui.Dialog().notification("Unable to fetch gallery item", 'Code ' + str(e.status_code) + ": " + e.error_message, xbmcgui.NOTIFICATION_ERROR)  # @UndefinedVariable
@@ -103,3 +113,15 @@ class GalleryNavigator():
                 return previousId
             previousId = item.id
         return None
+    
+    def getCachedItem(self, itemId):
+        for galleryItem in self._cachedGalleryItems:
+            if (galleryItem.id == itemId):
+                xbmc.log('Found '+str(itemId)+' in cache')
+                return galleryItem
+        return None
+    
+    def addCachedItem(self, galleryItem):
+        self._cachedGalleryItems.append(galleryItem)
+        if len(self._cachedGalleryItems) > CACHE_SIZE:
+            self._cachedGalleryItems.popleft()

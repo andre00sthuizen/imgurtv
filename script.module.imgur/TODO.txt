@@ -1,4 +1,3 @@
-* Cache previous and next
 * Fix long descriptions (possibly a max restriction of 875 chars) - e.g. NUvA7
 * Display number of likes & views
 * Scroll bottom max
@@ -7,3 +6,4 @@
 * Play animations / videos
 * Open links to youtube videos
 * Open links to other imgur posts / images
+* Send to phone - opens on Android
