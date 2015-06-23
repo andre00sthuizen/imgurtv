@@ -238,6 +238,15 @@
 			<wrapmultiline>true</wrapmultiline>
 		</control>
 		
+		<control type="label" id="131">
+			<description>Points and number of views</description>
+			<posx>10</posx>
+			<posy>720</posy>
+			<width>630</width>
+			<height>0</height>
+			<align>center</align>
+		</control>
+		
 
 		<!-- ===================== Right column (610px) ===================== -->
 		<control type="label" id="200">

@@ -1,6 +1,4 @@
 * Fix long descriptions (possibly a max restriction of 875 chars) - e.g. NUvA7
-* Display number of likes & views
-* Scroll bottom max
 * Scroll enhancement: animate to next image / label in list
 * Skin add title bar effect with background texture
 * Play animations / videos

@@ -109,4 +109,3 @@ elif mode[0] == 'renderGalleryItem':
     query = {'itemId': itemId, 'section': section}
     scriptUrl = 'special://home/addons/script.module.imgur/default.py'
     xbmc.executebuiltin("XBMC.RunScript("+scriptUrl+","+section+","+itemId+")")
-    

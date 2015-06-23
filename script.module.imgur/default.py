@@ -36,6 +36,8 @@ LAYOUT_PADDING = 10
 LAYOUT_LEFT_LIST_WIDTH = 630
 LAYOUT_LEFT_FIRST_LABEL_ID = 104
 LAYOUT_LEFT_LAST_LABEL_ID = 130
+LAYOUT_LEFT_SCROLL_TOP_ID = 101
+LAYOUT_LEFT_SCROLL_BOTTOM_ID = 131
 LAYOUT_RIGHT_LIST_WIDTH = 610
 LAYOUT_RIGHT_FIRST_LABEL_ID = 201
 LAYOUT_RIGHT_LAST_LABEL_ID = 220
@@ -62,9 +64,8 @@ class ImgurViewer(xbmcgui.WindowXML):
         
     def initLeft(self):
         galleryItem = galleryNavigator.item()
-        
         y = LAYOUT_PADDING
-        y = self.setLabelControl(101, galleryItem.title, y, font='font14', multiline=False)
+        y = self.setLabelControl(LAYOUT_LEFT_SCROLL_TOP_ID, galleryItem.title, y, font='font14', multiline=False)
         
         line2 = datetime.datetime.fromtimestamp(galleryItem.datetime).strftime('%a, %b %d at %H:%M')
         if galleryItem.account_url is not None:
@@ -88,13 +89,13 @@ class ImgurViewer(xbmcgui.WindowXML):
         else:
             y = self.setImageControl(imgControlId, galleryItem.id, galleryItem.link, galleryItem.width, galleryItem.height, y)
             y = self.setLabelControl(lblDescId, galleryItem.description, y)
-    
+        
+        y = self.setLabelControl(LAYOUT_LEFT_SCROLL_BOTTOM_ID, "{:,}".format(galleryItem.score)+' points, '+"{:,}".format(galleryItem.views)+' views', y)
+        
     def initRight(self):
         galleryItem = galleryNavigator.item()
         y = LAYOUT_PADDING
-        y = self.setLabelControl(200, str(galleryItem.comment_count)+' comments sorted by best', y, padding=LAYOUT_PADDING * 2)
-        
-        #y = y + 5
+        y = self.setLabelControl(200, "{:,}".format(galleryItem.comment_count)+' comments sorted by best', y, padding=LAYOUT_PADDING * 2)
         
         lblAuthorId = LAYOUT_RIGHT_FIRST_LABEL_ID
         lblCommentId = lblAuthorId + 1
@@ -124,11 +125,15 @@ class ImgurViewer(xbmcgui.WindowXML):
             self.previous()
             
     def scroll(self, amount):
-        for controlId in range(101, LAYOUT_LEFT_LAST_LABEL_ID):
+        for controlId in range(LAYOUT_LEFT_SCROLL_TOP_ID, LAYOUT_LEFT_SCROLL_BOTTOM_ID + 1):
             x = self.getControl(controlId).getX();
             y = self.getControl(controlId).getY();
-            if (controlId == 101 and amount > 0 and y == LAYOUT_PADDING):
+            if (controlId == LAYOUT_LEFT_SCROLL_TOP_ID and amount > 0 and y == LAYOUT_PADDING):
                 return
+            if (amount < 0):
+                lastControl = self.getControl(LAYOUT_LEFT_SCROLL_BOTTOM_ID)
+                if (lastControl.getY() + lastControl.getHeight() + LAYOUT_PADDING <= 720):
+                    return
             self.getControl(controlId).setPosition(x, y + amount);
         
     def setLabelControl(self, controlId, label, y, font='font13', padding=LAYOUT_PADDING, multiline=True):
@@ -139,7 +144,7 @@ class ImgurViewer(xbmcgui.WindowXML):
             self.getControl(controlId).setPosition(x, y)
             self.getControl(controlId).setVisible(True)
             height = self.calculateLabelHeight(label, width, font, multiline)
-            xbmc.log('setLabelControl controlId='+str(controlId)+', label='+label.encode('utf-8')+', x='+str(x)+', y='+str(y)+', height='+str(height)+', padding='+str(padding), xbmc.LOGDEBUG)
+            xbmc.log('setLabelControl controlId='+str(controlId)+', label='+label.encode('utf-8')+', x='+str(x)+', y='+str(y)+', height='+str(height)+', padding='+str(padding))
             y = y + height + padding
         else:
             xbmc.log('setLabelControl controlId='+str(controlId)+', visible=FALSE', xbmc.LOGDEBUG)
@@ -185,7 +190,7 @@ class ImgurViewer(xbmcgui.WindowXML):
         return y
     
     def redraw(self):
-        for controlId in range(101, LAYOUT_LEFT_LAST_LABEL_ID):
+        for controlId in range(LAYOUT_LEFT_SCROLL_TOP_ID, LAYOUT_LEFT_SCROLL_BOTTOM_ID):
             self.getControl(controlId).setVisible(False)
         for controlId in range(LAYOUT_RIGHT_FIRST_LABEL_ID, LAYOUT_RIGHT_LAST_LABEL_ID):
             self.getControl(controlId).setVisible(False)
