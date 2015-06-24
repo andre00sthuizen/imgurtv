@@ -125,3 +125,14 @@ class GalleryNavigator():
         self._cachedGalleryItems.append(galleryItem)
         if len(self._cachedGalleryItems) > CACHE_SIZE:
             self._cachedGalleryItems.popleft()
+            
+    def getPlayIds(self):
+        ids = list()
+        if (self._galleryItem.is_album):
+            for galleryItem in self._galleryItem.images:
+                if (galleryItem['animated'] == True):
+                    ids.append(galleryItem['id'])
+        else:
+            if (self._galleryItem.animated == True):
+                ids.append(self._galleryItem.id)
+        return ids

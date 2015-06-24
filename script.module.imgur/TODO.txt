@@ -1,6 +1,6 @@
 * Fix long descriptions (possibly a max restriction of 875 chars) - e.g. NUvA7
 * Scroll enhancement: animate to next image / label in list
-* Skin add title bar effect with background texture
+* Overlay play button on animations
 * Play animations / videos
 * Open links to youtube videos
 * Open links to other imgur posts / images

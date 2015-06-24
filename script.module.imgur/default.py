@@ -31,6 +31,7 @@ ACTION_PARENT_DIR = 9
 ACTION_PREVIOUS_MENU = 10
 ACTION_MOUSE_WHEEL_UP = 104
 ACTION_MOUSE_WHEEL_DOWN = 105
+ACTION_SELECT_ITEM = 7
 
 LAYOUT_PADDING = 10
 LAYOUT_LEFT_LIST_WIDTH = 630
@@ -90,12 +91,12 @@ class ImgurViewer(xbmcgui.WindowXML):
             y = self.setImageControl(imgControlId, galleryItem.id, galleryItem.link, galleryItem.width, galleryItem.height, y)
             y = self.setLabelControl(lblDescId, galleryItem.description, y)
         
-        y = self.setLabelControl(LAYOUT_LEFT_SCROLL_BOTTOM_ID, "{:,}".format(galleryItem.score)+' points, '+"{:,}".format(galleryItem.views)+' views', y)
+        y = self.setLabelControl(LAYOUT_LEFT_SCROLL_BOTTOM_ID, self.formatNumber(galleryItem.score)+' points, '+self.formatNumber(galleryItem.views)+' views', y)
         
     def initRight(self):
         galleryItem = galleryNavigator.item()
         y = LAYOUT_PADDING
-        y = self.setLabelControl(200, "{:,}".format(galleryItem.comment_count)+' comments sorted by best', y, padding=LAYOUT_PADDING * 2)
+        y = self.setLabelControl(200, self.formatNumber(galleryItem.comment_count)+' comments sorted by best', y, padding=LAYOUT_PADDING * 2)
         
         lblAuthorId = LAYOUT_RIGHT_FIRST_LABEL_ID
         lblCommentId = lblAuthorId + 1
@@ -123,7 +124,9 @@ class ImgurViewer(xbmcgui.WindowXML):
             self.next()
         if (action == ACTION_MOVE_LEFT):
             self.previous()
-            
+        if (action == ACTION_SELECT_ITEM):
+            self.playAll();
+        
     def scroll(self, amount):
         for controlId in range(LAYOUT_LEFT_SCROLL_TOP_ID, LAYOUT_LEFT_SCROLL_BOTTOM_ID + 1):
             x = self.getControl(controlId).getX();
@@ -144,7 +147,7 @@ class ImgurViewer(xbmcgui.WindowXML):
             self.getControl(controlId).setPosition(x, y)
             self.getControl(controlId).setVisible(True)
             height = self.calculateLabelHeight(label, width, font, multiline)
-            xbmc.log('setLabelControl controlId='+str(controlId)+', label='+label.encode('utf-8')+', x='+str(x)+', y='+str(y)+', height='+str(height)+', padding='+str(padding))
+            xbmc.log('setLabelControl controlId='+str(controlId)+', label='+label.encode('utf-8')+', x='+str(x)+', y='+str(y)+', height='+str(height)+', padding='+str(padding), xbmc.LOGDEBUG)
             y = y + height + padding
         else:
             xbmc.log('setLabelControl controlId='+str(controlId)+', visible=FALSE', xbmc.LOGDEBUG)
@@ -214,7 +217,25 @@ class ImgurViewer(xbmcgui.WindowXML):
             self.close()
         xbmc.executebuiltin('Dialog.Close(busydialog)')
     
+    def formatNumber(self, number):
+        s = '%d' % number
+        groups = []
+        while s and s[-1].isdigit():
+            groups.append(s[-3:])
+            s = s[:-3]
+        return s + ','.join(reversed(groups))
     
+    def playAll(self):
+        playIds = galleryNavigator.getPlayIds()
+        if len(playIds) == 0:
+            return
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        for playId in playIds: 
+            title = galleryNavigator.item().title + ' - ' + str(1)
+            listitem = xbmcgui.ListItem(title, thumbnailImage='http://i.imgur.com/' + playId + 'b.jpg') 
+            playlist.add('http://i.imgur.com/' + playId + '.mp4', listitem)
+        xbmc.Player().play(playlist)
     
 #  Banana for scale
 #  _
