@@ -3,3 +3,4 @@
 * Open links to youtube videos
 * Open links to other imgur posts / images
 * Send to phone - opens on Android
+* Error handling and submission

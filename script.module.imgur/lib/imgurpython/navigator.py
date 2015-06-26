@@ -14,13 +14,13 @@
 #
 import xbmc
 import xbmcgui
+import xbmcaddon
 from collections import deque
 from .client import ImgurClient
 from .helpers import error
 
 CLIENT_ID = '716f6289bf2413c'
 CLIENT_SECRET = 'fdb0ba64d591f639907bc78ab2a926fedf05ce84'
-CACHE_SIZE = 10
 
 class GalleryNavigator():
     
@@ -30,9 +30,11 @@ class GalleryNavigator():
     _galleryItem = None
     _galleryItems = None
     _cachedGalleryItems = deque()
+    _cacheSize = 10
     
     def __init__(self):
         self._client = ImgurClient(CLIENT_ID, CLIENT_SECRET)
+        self._cacheSize = int(xbmcaddon.Addon(id='script.module.imgur').getSetting('historyCache'))
         
     def init(self, section, itemId=None):
         xbmc.log('GalleryNavigator.init(): itemId='+str(itemId)+' section='+str(section))
@@ -123,7 +125,7 @@ class GalleryNavigator():
     
     def addCachedItem(self, galleryItem):
         self._cachedGalleryItems.append(galleryItem)
-        if len(self._cachedGalleryItems) > CACHE_SIZE:
+        if len(self._cachedGalleryItems) > self._cacheSize:
             self._cachedGalleryItems.popleft()
             
     def getPlayIds(self):
