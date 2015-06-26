@@ -36,12 +36,14 @@ ACTION_SELECT_ITEM = 7
 LAYOUT_PADDING = 10
 LAYOUT_LEFT_LIST_WIDTH = 630
 LAYOUT_LEFT_FIRST_LABEL_ID = 104
-LAYOUT_LEFT_LAST_LABEL_ID = 130
+LAYOUT_LEFT_LAST_LABEL_ID = 140
 LAYOUT_LEFT_SCROLL_TOP_ID = 101
-LAYOUT_LEFT_SCROLL_BOTTOM_ID = 131
+LAYOUT_LEFT_SCROLL_BOTTOM_ID = 144
 LAYOUT_RIGHT_LIST_WIDTH = 610
 LAYOUT_RIGHT_FIRST_LABEL_ID = 201
 LAYOUT_RIGHT_LAST_LABEL_ID = 220
+
+SCROLL_AMOUNT = 70
 
 addon = xbmcaddon.Addon(id='script.module.imgur')
 galleryNavigator = GalleryNavigator()
@@ -75,23 +77,31 @@ class ImgurViewer(xbmcgui.WindowXML):
         
         lblTitleId = LAYOUT_LEFT_FIRST_LABEL_ID
         imgControlId = lblTitleId + 1
-        lblDescId = imgControlId + 1
+        imgOverlayId = imgControlId + 1
+        lblDescId = imgOverlayId + 1
         if (galleryItem.is_album):
             y = self.setLabelControl(103, galleryItem.description, y)
+            rowItems = 4
             for albumImage in galleryItem.images:
-                if lblDescId > LAYOUT_LEFT_LAST_LABEL_ID:
+                if lblTitleId > LAYOUT_LEFT_LAST_LABEL_ID:
                     break
                 y = self.setLabelControl(lblTitleId, albumImage['title'], y)
-                lblTitleId = lblTitleId + 3
+                lblTitleId = lblTitleId + rowItems
+                
                 y = self.setImageControl(imgControlId, albumImage['id'], albumImage['link'], albumImage['width'], albumImage['height'], y)
-                imgControlId = imgControlId + 3
+                self.overlayPlayButton(imgControlId, imgOverlayId, albumImage['animated'])
+                imgControlId = imgControlId + rowItems
+                imgOverlayId = imgOverlayId + rowItems
+                
                 y = self.setLabelControl(lblDescId, albumImage['description'], y)
-                lblDescId = lblDescId + 3
+                lblDescId = lblDescId + rowItems
         else:
             y = self.setImageControl(imgControlId, galleryItem.id, galleryItem.link, galleryItem.width, galleryItem.height, y)
             y = self.setLabelControl(lblDescId, galleryItem.description, y)
-        
+            self.overlayPlayButton(imgControlId, imgOverlayId, galleryItem.animated)
+                
         y = self.setLabelControl(LAYOUT_LEFT_SCROLL_BOTTOM_ID, self.formatNumber(galleryItem.score)+' points, '+self.formatNumber(galleryItem.views)+' views', y)
+        
         
     def initRight(self):
         galleryItem = galleryNavigator.item()
@@ -117,9 +127,9 @@ class ImgurViewer(xbmcgui.WindowXML):
         if action == ACTION_PARENT_DIR:
             self.removeControl(self.strAction)
         if (action == ACTION_PAGE_UP or action == ACTION_MOUSE_WHEEL_UP or action == ACTION_MOVE_UP):
-            self.scroll(50)
+            self.scroll(SCROLL_AMOUNT)
         if (action == ACTION_PAGE_DOWN or action == ACTION_MOUSE_WHEEL_DOWN or action == ACTION_MOVE_DOWN):
-            self.scroll(-50)
+            self.scroll(-SCROLL_AMOUNT)
         if (action == ACTION_MOVE_RIGHT):
             self.next()
         if (action == ACTION_MOVE_LEFT):
@@ -171,18 +181,18 @@ class ImgurViewer(xbmcgui.WindowXML):
         if ((textWidth < width and newlines == 0) or (multiline == False)):
             return textHeight
         estLines = int(math.ceil(textWidth / float(width)))
-        #estLines = int(math.ceil(len(text) / float(68)))
         height = (estLines + newlines) * (textHeight)
         return height
         
     def setImageControl(self, controlId, imageId, link, width, height, y, maxWidth=LAYOUT_LEFT_LIST_WIDTH):
-        imgUrl = 'http://i.imgur.com/'+imageId+'h.'+link[-3:]
+        imgUrl = self.getImageUrl(imageId, link)
         self.getControl(controlId).setImage(imgUrl)
         x = LAYOUT_PADDING
         if (width > maxWidth):
-            height = int(float(height) / float(width) * float(maxWidth))
+            heightRatio = float(height) / float(width)
+            height = int(heightRatio * float(maxWidth))
             width = maxWidth
-        else:
+        if (width < maxWidth):
             x = x + int(float(maxWidth - width) / float(2))
         self.getControl(controlId).setWidth(width)
         self.getControl(controlId).setHeight(height)
@@ -237,6 +247,24 @@ class ImgurViewer(xbmcgui.WindowXML):
             playlist.add('http://i.imgur.com/' + playId + '.mp4', listitem)
         xbmc.Player().play(playlist)
     
+    def getImageUrl(self, imageId, link):
+        imageQualityOptions = {"320x320":"m", "640x640":"l", "1024x1024":"h"}
+        imageQuality = imageQualityOptions[addon.getSetting('imageQuality')]
+        imgUrl = 'http://i.imgur.com/'+imageId + imageQuality+'.'+link[-3:]
+        return imgUrl
+    
+    def overlayPlayButton(self, imageControlId, overlayControlId, animated):
+        overlayControl = self.getControl(overlayControlId)
+        if (animated):
+            imageControl = self.getControl(imageControlId)
+            y = imageControl.getY() + (imageControl.getHeight() / 2) - (overlayControl.getHeight() / 2)
+            x = (LAYOUT_LEFT_LIST_WIDTH / 2) - (overlayControl.getWidth() / 2)
+            overlayControl.setPosition(x, y)
+            overlayControl.setVisible(True)
+        else:
+            overlayControl.setVisible(False)
+
+        
 #  Banana for scale
 #  _
 # //\

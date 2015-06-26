@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting id="imageQuality" type="labelenum" label="Image quality" values="320x320|640x640|1024x1024" default="1024x1024" />
+</settings>

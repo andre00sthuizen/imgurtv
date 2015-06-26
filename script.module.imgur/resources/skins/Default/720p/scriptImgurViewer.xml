@@ -70,65 +70,66 @@
 			<width>630</width>
 			<height>0</height>
 		</control>
-		<control type="label" id="106">
-			<posx>10</posx>
-			<posy>415</posy>
-			<width>630</width>
-			<height>0</height>
-			<wrapmultiline>true</wrapmultiline>
+		<control type="image" id="106">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
 		</control>
 		<control type="label" id="107">
 			<posx>10</posx>
-			<posy>100</posy>
-			<width>630</width>
-			<height>0</height>
-			<wrapmultiline>true</wrapmultiline>
-		</control>
-		<control type="largeimage" background="true" id="108">
-			<posx>10</posx>
-			<posy>115</posy>
-			<width>630</width>
-			<height>0</height>
-		</control>
-		<control type="label" id="109">
-			<posx>10</posx>
 			<posy>415</posy>
 			<width>630</width>
 			<height>0</height>
 			<wrapmultiline>true</wrapmultiline>
 		</control>
-		<control type="label" id="110">
+		<control type="label" id="108">
 			<posx>10</posx>
 			<posy>100</posy>
 			<width>630</width>
 			<height>0</height>
 			<wrapmultiline>true</wrapmultiline>
 		</control>
-		<control type="largeimage" background="true" id="111">
+		<control type="largeimage" background="true" id="109">
 			<posx>10</posx>
 			<posy>115</posy>
 			<width>630</width>
 			<height>0</height>
+		</control>
+		<control type="image" id="110">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
+		</control>
+		<control type="label" id="111">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
 		</control>
 		<control type="label" id="112">
 			<posx>10</posx>
-			<posy>415</posy>
-			<width>630</width>
-			<height>0</height>
-			<wrapmultiline>true</wrapmultiline>
-		</control>
-		<control type="label" id="113">
-			<posx>10</posx>
 			<posy>100</posy>
 			<width>630</width>
 			<height>0</height>
 			<wrapmultiline>true</wrapmultiline>
 		</control>
-		<control type="largeimage" background="true" id="114">
+		<control type="largeimage" background="true" id="113">
 			<posx>10</posx>
 			<posy>115</posy>
 			<width>630</width>
 			<height>0</height>
+		</control>
+		<control type="image" id="114">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
 		</control>
 		<control type="label" id="115">
 			<posx>10</posx>
@@ -150,65 +151,66 @@
 			<width>630</width>
 			<height>0</height>
 		</control>
-		<control type="label" id="118">
-			<posx>10</posx>
-			<posy>415</posy>
-			<width>630</width>
-			<height>0</height>
-			<wrapmultiline>true</wrapmultiline>
+		<control type="image" id="118">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
 		</control>
 		<control type="label" id="119">
 			<posx>10</posx>
-			<posy>100</posy>
-			<width>630</width>
-			<height>0</height>
-			<wrapmultiline>true</wrapmultiline>
-		</control>
-		<control type="largeimage" background="true" id="120">
-			<posx>10</posx>
-			<posy>115</posy>
-			<width>630</width>
-			<height>0</height>
-		</control>
-		<control type="label" id="121">
-			<posx>10</posx>
 			<posy>415</posy>
 			<width>630</width>
 			<height>0</height>
 			<wrapmultiline>true</wrapmultiline>
 		</control>
-		<control type="label" id="122">
+		<control type="label" id="120">
 			<posx>10</posx>
 			<posy>100</posy>
 			<width>630</width>
 			<height>0</height>
 			<wrapmultiline>true</wrapmultiline>
 		</control>
-		<control type="largeimage" background="true" id="123">
+		<control type="largeimage" background="true" id="121">
 			<posx>10</posx>
 			<posy>115</posy>
 			<width>630</width>
 			<height>0</height>
+		</control>
+		<control type="image" id="122">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
+		</control>
+		<control type="label" id="123">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
 		</control>
 		<control type="label" id="124">
 			<posx>10</posx>
-			<posy>415</posy>
-			<width>630</width>
-			<height>0</height>
-			<wrapmultiline>true</wrapmultiline>
-		</control>
-		<control type="label" id="125">
-			<posx>10</posx>
 			<posy>100</posy>
 			<width>630</width>
 			<height>0</height>
 			<wrapmultiline>true</wrapmultiline>
 		</control>
-		<control type="largeimage" background="true" id="126">
+		<control type="largeimage" background="true" id="125">
 			<posx>10</posx>
 			<posy>115</posy>
 			<width>630</width>
 			<height>0</height>
+		</control>
+		<control type="image" id="126">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
 		</control>
 		<control type="label" id="127">
 			<posx>10</posx>
@@ -230,7 +232,95 @@
 			<width>630</width>
 			<height>0</height>
 		</control>
-		<control type="label" id="130">
+		<control type="image" id="130">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
+		</control>
+		<control type="label" id="131">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="132">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="133">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="image" id="134">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
+		</control>
+		<control type="label" id="135">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="136">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="137">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="image" id="138">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
+		</control>
+		<control type="label" id="139">
+			<posx>10</posx>
+			<posy>415</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="label" id="140">
+			<posx>10</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<height>0</height>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+		<control type="largeimage" background="true" id="141">
+			<posx>10</posx>
+			<posy>115</posy>
+			<width>630</width>
+			<height>0</height>
+		</control>
+		<control type="image" id="142">
+			<posx>283</posx>
+			<posy>328</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>OSDPlay.png</texture>
+		</control>
+		<control type="label" id="143">
 			<posx>10</posx>
 			<posy>415</posy>
 			<width>630</width>
@@ -238,7 +328,7 @@
 			<wrapmultiline>true</wrapmultiline>
 		</control>
 		
-		<control type="label" id="131">
+		<control type="label" id="144">
 			<description>Points and number of views</description>
 			<posx>10</posx>
 			<posy>720</posy>
