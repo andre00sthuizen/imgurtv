@@ -43,7 +43,7 @@ LAYOUT_RIGHT_LIST_WIDTH = 610
 LAYOUT_RIGHT_FIRST_LABEL_ID = 201
 LAYOUT_RIGHT_LAST_LABEL_ID = 220
 
-SCROLL_AMOUNT = 70
+SCROLL_AMOUNT = 120
 
 addon = xbmcaddon.Addon(id='script.module.imgur')
 galleryNavigator = GalleryNavigator()
