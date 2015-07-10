@@ -32,6 +32,7 @@ ACTION_PREVIOUS_MENU = 10
 ACTION_MOUSE_WHEEL_UP = 104
 ACTION_MOUSE_WHEEL_DOWN = 105
 ACTION_SELECT_ITEM = 7
+ACTION_NAV_BACK = 92
 
 LAYOUT_PADDING = 10
 LAYOUT_LEFT_LIST_WIDTH = 630
@@ -122,7 +123,7 @@ class ImgurViewer(xbmcgui.WindowXML):
             lblCommentId = lblCommentId + 2
         
     def onAction(self, action):
-        if action == ACTION_PREVIOUS_MENU:
+        if action == ACTION_PREVIOUS_MENU or action == ACTION_NAV_BACK:
             self.close()
         if action == ACTION_PARENT_DIR:
             self.removeControl(self.strAction)
